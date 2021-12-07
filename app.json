@@ -1,0 +1,47 @@
+{
+    "name" : "Video-Encoder-Bot",
+    "description" : "A telegram bot for compressing/encoding videos in h264 format.",
+    "keywords" : [
+        "telegram",
+        "bot",
+        "heroku",
+        "python",
+        "pyrogram",
+        "app.json",
+        "app"
+    ],
+    "repository" : "https://github.com/AliAryanTech/video-encoder-bot",
+    "env" : {
+        "BOT_TOKEN" : {
+            "description" : "Get From https://t.me/BotFather"
+        },
+        "API_ID" : {
+            "description" : "Get From https://my.telegram.org"
+        },
+        "API_HASH" : {
+            "description" : "Get From https://my.telegram.org"
+        },
+        "SUDO_USERS" : {
+            "description" : "Chat identifier of the sudo user. For multiple users use space as seperator."
+        },
+        "DOWNLOAD_DIR" : {
+            "description" : "(Optional) Temporary download directory to keep downloaded files.",
+            "required" : false
+        }
+    },
+    "stack" : "heroku-20",
+    "buildpacks" : [
+        {
+            "url" : "heroku/python"
+        },
+        {
+            "url" : "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        }
+    ],
+    "formation" : {
+        "worker" : {
+            "quantity" : 1,
+            "size" : "free"
+        }
+    }
+}
